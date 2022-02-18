@@ -1,0 +1,49 @@
+﻿<Window x:Class="ServicesManager.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ServicesManager"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="900 " Width="1600"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        xmlns:materialDesignConverters="clr-namespace:MaterialDesignThemes.Wpf.Converters;assembly=MaterialDesignThemes.Wpf" Closed="Window_Closed">
+    <Window.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.TextBlock.xaml"/>
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.ToggleButton.xaml"/>
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Button.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Card.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.CheckBox.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Flipper.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Popupbox.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Window.Resources>
+    <Grid>
+        <Viewbox Stretch="Uniform">
+            <Canvas Height="900"  Width="1600" Background="#FFF8FBDE">
+                <ScrollViewer x:Name="ScvScro" Canvas.Top="14" Canvas.Left="15" Height="874" Width="420" Background="#19F700FF" MouseWheel="ScvScro_MouseWheel" PreviewMouseWheel="ScvScro_PreviewMouseWheel">
+                    <ListBox x:Name="SvcList" Width="420"
+  IsEnabled="{Binding IsChecked, ElementName=EnableListBox}" SelectionChanged="SvcList_SelectionChanged">
+                        <TextBlock Text="1234" FontSize="40"/>
+                    </ListBox>
+                </ScrollViewer>
+                <Separator Canvas.Left="372" Canvas.Top="30" Height="840" Width="2"/>
+                <GroupBox Height="874" Header="信息" Width="520" Canvas.Left="445" Canvas.Top="14">
+                    <Grid>
+                        <TextBox x:Name="SvcName" TextWrapping="NoWrap" Text="" Width="500" Height="60" FontSize="34" Margin="0,8,0,743" FontFamily="Microsoft YaHei" IsReadOnly="True"/>
+                        <TextBox x:Name="DlpName" TextWrapping="NoWrap" Text="" Width="500" Height="60" FontSize="34" Margin="1,91,1,671" FontFamily="Microsoft YaHei" IsReadOnly="True"/>
+                        <Button x:Name="uninstall_button" Content="卸载" Canvas.Left="988" Canvas.Top="815" Height="72" Width="189" FontSize="36" Click="uninstall_button_Click" Margin="156,199,156,551"/>
+                        <Button x:Name="stop_button" Content="停止" Canvas.Left="988" Canvas.Top="815" Height="72" Width="189" FontSize="36" Margin="156,295,156,455" Click="stop_button_Click"/>
+                        <Button x:Name="start_button" Content="启动" Canvas.Left="988" Canvas.Top="815" Height="72" Width="189" FontSize="36" Margin="156,391,156,359" Click="start_button_Click" />
+                    </Grid>
+                </GroupBox>
+                <Button x:Name="flush_button" Content="刷新" Canvas.Left="988" Canvas.Top="815" Height="72" Width="189" FontSize="36" Click="Button_Click"/>
+                <Button x:Name="install_button" Content="安装" Canvas.Left="988" Canvas.Top="723" Height="72" Width="189" FontSize="36" Click="install_button_Click"/>
+
+            </Canvas>
+        </Viewbox>
+    </Grid>
+</Window>
